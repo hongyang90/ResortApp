@@ -6,13 +6,18 @@ import Rooms from './pages/Rooms';
 import SingleRoom from './pages/SingleRoom';
 import Error from './pages/ErrorPage';
 
+import {Route, Switch} from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
-      <Home />
-      <Rooms />
-      <SingleRoom />
-      <Error />
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/rooms/' component={Rooms}/>
+        <Route exact path='/rooms/:roomId' component={SingleRoom}/>
+        <Route component={Error}/>
+      </Switch>
+
     </div>
   );
 }
