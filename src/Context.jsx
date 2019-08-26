@@ -14,7 +14,7 @@ class RoomProvider extends Component {
 
     componentDidMount () {
         let rooms = this.formatData(items);
-        let featuredRooms = rooms.filter(rooms => room.feature === true);
+        let featuredRooms = rooms.filter(room => room.featured === true);
         this.setState({
             rooms,
             featuredRooms,
@@ -26,7 +26,7 @@ class RoomProvider extends Component {
     formatData(items) {
         let tempItems = items.map(item => {
             let id = item.sys.id;
-            let images = items.field.images.map(image => image.fields.file.url);
+            let images = item.fields.images.map(image => image.fields.file.url);
             let room = {...item.fields, images, id};
             return room;
 
