@@ -53,6 +53,8 @@ class RoomProvider extends Component {
 
 const RoomConsumer = RoomContext.Consumer;
 
+export {RoomProvider, RoomConsumer, RoomContext};
+
 export function withRoomConsumer(Component){
     return function ConsumerWrapper(props){
         return <RoomConsumer>
@@ -60,5 +62,3 @@ export function withRoomConsumer(Component){
         </RoomConsumer>
     }
 }
-
-export {RoomProvider, RoomConsumer, RoomContext};
